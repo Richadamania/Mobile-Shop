@@ -27,7 +27,7 @@
             <asp:TextBox ID="txtMobileNumber" runat="server" height="22px" style="z-index: 1; left: 194px; top: 208px; position: absolute; bottom: 421px; width: 225px; margin-left: 29px"></asp:TextBox>
         </p>
         <asp:Label ID="lblCustomerDOB" runat="server" Text="DOB" width="130px"></asp:Label>
-        <asp:TextBox ID="txtCustomerDOB" runat="server" height="22px" style="z-index: 1; left: 130px; top: 253px; position: absolute; width: 236px; margin-left: 88px"></asp:TextBox>
+        <asp:TextBox ID="txtDOB" runat="server" height="22px" style="z-index: 1; left: 130px; top: 253px; position: absolute; width: 236px; margin-left: 88px"></asp:TextBox>
         <p style="height: 29px">
             <asp:CheckBox ID="chkMembership" runat="server" Text="Membership" />
         </p>
@@ -35,6 +35,8 @@
         <p>
             <asp:Button ID="btnOK" runat="server" OnClick="btnOK_Click" Text="OK" Width="46px" />
             <asp:Button ID="btnCancel" runat="server" style="margin-left: 21px" Text="Cancel" />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <asp:Button ID="btnFind" runat="server" OnClick="btnFind_Click" Text="Find" />
         </p>
     </form>
 </body>
