@@ -153,5 +153,44 @@ namespace ClassLibrary
             }
             
         }
+
+        //function for the public validation method
+
+        public string Valid(string firstname, string lastname, string address, Int32 mobilenumber, DateTime date)
+        {
+            //create a string variable to store the error
+            String Error = "";
+
+            ///this function accepts 5 parameters for validation
+            ///this function returns a string containing any error message
+            ///if no errors found then a blank string is returned
+           
+            //if the FirstName is blank
+            if (firstname.Length == 0)
+            {
+                //record the error
+                Error = Error + "The First Name may not be blank : ";
+            }
+            //if the first name is greater then 50 characters
+            if (firstname.Length > 50)
+            {
+                //record the error
+                Error = Error + "The first name must be less than 51 character :";
+            }
+
+            //if the LastName is blank
+            if (lastname.Length == 0)
+            {
+                //record the error
+                Error = Error + "The Last Name may not be blank : ";
+            }
+            //if the last name is greater then 50 characters
+            if (lastname.Length > 50)
+            {
+                //record the error
+                Error = Error + "The last name must be less than 51 character :";
+            }
+            return Error;
+        }
     }
 }
