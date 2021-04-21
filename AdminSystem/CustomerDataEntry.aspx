@@ -11,7 +11,7 @@
     <form id="form1" runat="server">
         <div>
             <asp:Label ID="lblCustomerID" runat="server" height="19px" Text="Customer ID" width="130px"></asp:Label>
-            <asp:TextBox ID="txtCustomerID" runat="server" height="22px" style="z-index: 1; left: 176px; top: 58px; position: absolute; width: 225px; margin-left: 51px"></asp:TextBox>
+            <asp:TextBox ID="txtCustomerID" runat="server" height="22px" style="z-index: 1; left: 176px; top: 58px; position: absolute; width: 225px; margin-left: 51px" OnTextChanged="txtCustomerID_TextChanged"></asp:TextBox>
             <br />
         </div>
         <asp:Label ID="lblFirstName" runat="server" height="19px" Text="First Name" width="130px"></asp:Label>

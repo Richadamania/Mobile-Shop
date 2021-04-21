@@ -8,33 +8,50 @@ using ClassLibrary;
 
 public partial class _1_DataEntry : System.Web.UI.Page
 {
-    protected void Page_Load(object sender, EventArgs e)
-    {
-        //hjh
-    }
-
+    protected void Page_Load(object sender, EventArgs e) { }
+ 
     protected void btnOK_Click(object sender, EventArgs e)
     {
         //create a new instace of clsCustomer
         clsCustomer AnCustomer = new clsCustomer();
-        //Capture the Customer ID
-        AnCustomer.CustomerID = Convert.ToInt32(txtCustomerID.Text);
-        AnCustomer.FirstName = txtFirstName.Text;
-        AnCustomer.LastName = txtLastName.Text;
-        AnCustomer.Address = txtAddress.Text;
-        AnCustomer.MobileNumber = Convert.ToInt32(txtMobileNumber.Text);
-        AnCustomer.Date = Convert.ToDateTime(txtDOB.Text);
-        // store the customer in the session object
-        Session["AnCustomer"] = AnCustomer;
-        //navigate to the viewer page
-        Response.Redirect("CustomerViewer.aspx");
-    }
+        //capture the first name
+        string Fi rstName = txtFirstName.Text;
+        //capture the last name
+        string LastName = txtLastName.Text;
+        //capture the address
+        string Address = txtAddress.Text;
+        //capture mobile number
+        string MobileNumber =txtMobileNumber.Text;
+        //capture the date
+        string Date = txtDOB.Text;
+        // variable to store any error messages
+        string Error = "";
+        //validate the data
+        Error = AnCustomer.Valid(FirstName, LastName, Address, MobileNumber, Date);
+        if (Error == "")
+        {
+            //capture the first name
+            AnCustomer.FirstName = FirstName;
+            //capture the last name
+            AnCustomer.LastName = LastName;
+            //capture the address
+            AnCustomer.Address = Address;
+            //capture the mobile number
+            AnCustomer.MobileNumber = Convert.ToInt64(MobileNumber);
+            //capture the date
+            AnCustomer.Date = Convert.ToDateTime(Date);
+            //store the customer in the session object
+            Session["AnCustomer"] = AnCustomer;
+            //redirect to the viewer page
+            Response.Write("AnCustomerViewer.aspx");
+        }
+        else
+        {
+            //display the error message
+            lblError.Text = Error;
+        }
 
-    protected void txtFirstName_TextChanged(object sender, EventArgs e)
-    {
-
-    }
-
+        }
     protected void btnFind_Click(object sender, EventArgs e)
     {
         //create a new instace of customer class
@@ -57,7 +74,9 @@ public partial class _1_DataEntry : System.Web.UI.Page
             txtAddress.Text = AnCustomer.Address;
             txtMobileNumber.Text = Convert.ToString(AnCustomer.MobileNumber);
             txtDOB.Text = Convert.ToString(AnCustomer.Date);
-
         }
+
+
+
     }
 }

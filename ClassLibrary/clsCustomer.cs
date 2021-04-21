@@ -90,9 +90,9 @@ namespace ClassLibrary
         }
 
         //MobileNumber private member variable
-        private Int32 mMobileNumber;
+        private Int64 mMobileNumber;
         //MobileNumber public property
-        public Int32 MobileNumber
+        public Int64 MobileNumber
         {
             get
             {
@@ -138,8 +138,8 @@ namespace ClassLibrary
                 mCustomerID = Convert.ToInt32(DB.DataTable.Rows[0]["CustomerID"]);
                 mFirstName = Convert.ToString(DB.DataTable.Rows[0]["FirstName"]);
                 mLastName = Convert.ToString(DB.DataTable.Rows[0]["LastName"]);
-                mAddress = Convert.ToString(DB.DataTable.Rows[0]["Address"]); 
-                mMobileNumber = Convert.ToInt32(DB.DataTable.Rows[0]["MobileNumber"]);
+                mAddress = Convert.ToString(DB.DataTable.Rows[0]["Address"]);
+                mMobileNumber = Convert.ToInt64(DB.DataTable.Rows[0]["MobileNumber"]);
                 mDate = Convert.ToDateTime(DB.DataTable.Rows[0]["Date"]);
                 mMembership = Convert.ToBoolean(DB.DataTable.Rows[0]["Membership"]);
                 //return that everything worked ok 
@@ -151,21 +151,24 @@ namespace ClassLibrary
                 //return false indicating a problem
                 return false;
             }
-            
+
         }
 
         //function for the public validation method
 
-        public string Valid(string firstname, string lastname, string address, Int32 mobilenumber, DateTime date)
+        public string Valid(string firstname, string lastname, string address, string mobilenumber, string date)
         {
             //create a string variable to store the error
             String Error = "";
+            //create a temporary variable to store date value
+
 
             ///this function accepts 5 parameters for validation
             ///this function returns a string containing any error message
             ///if no errors found then a blank string is returned
-           
+
             //if the FirstName is blank
+
             if (firstname.Length == 0)
             {
                 //record the error
@@ -190,7 +193,64 @@ namespace ClassLibrary
                 //record the error
                 Error = Error + "The last name must be less than 51 character :";
             }
-            return Error;
+
+            //if the Address is blank
+            if (address.Length == 0)
+            {
+                //record the error
+                Error = Error + "The Address may not be blank : ";
+            }
+            //if the Address is greater then 101 characters
+            if (address.Length > 100)
+            {
+                //record the error
+                Error = Error + "The Address must be less than 101 character :";
+            }
+
+            //if the MobileNumber is blank
+
+            if (mobilenumber.Length == 0)
+            {
+                //record the error
+                Error = Error + "The MobileNumber may not be blank : ";
+            };
+
+            //if the mobile number is greater then 11 integer
+            if (mobilenumber.Length > 11)
+            {
+                //record the error
+                Error = Error + "The MobileNumber must be 11 characters :";
+
+
+                //Create a date time variable to store date values
+
+                DateTime DateTemp;
+                try
+                {
+
+
+                    DateTemp = Convert.ToDateTime(date);
+
+                    if (DateTemp > Convert.ToDateTime("31/12/2005"))
+                    {
+                        //record the error
+                        Error = Error + "The Date must be 31/12/2005 or more : ";
+                    }
+                    if (DateTemp <= Convert.ToDateTime("31/12/1700"))
+                    {
+                        //record the error
+                        Error = Error + "The Date must be after 31/12/1700  : ";
+                    }
+                }
+                catch
+                {
+                    //record the error
+                    Error = Error + "The Date was not a valid date  : ";
+                }
+
+                return Error;
+
+            }
         }
     }
 }
