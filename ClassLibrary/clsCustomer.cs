@@ -156,7 +156,7 @@ namespace ClassLibrary
 
         //function for the public validation method
 
-        public string Valid(string firstname, string lastname, string address, string mobilenumber, string date)
+        /*public string Valid(string firstname, string lastname, string address, string mobilenumber, string date)
         {
             //create a string variable to store the error
             String Error = "";
@@ -250,7 +250,7 @@ namespace ClassLibrary
 
                 return Error;
 
-            }
-        }
+           }*/
+        //}
     }
 }

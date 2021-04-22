@@ -285,7 +285,7 @@ namespace Testing3
             Assert.IsTrue(OK);
         }
 
-        [TestMethod]
+        /*[TestMethod]
         public void ValidMethodOK()
         {
             //create an instance of the class we want to create
@@ -914,7 +914,7 @@ namespace Testing3
             Error = AnCustomer.Valid(FirstName, LastName, Address, MobileNumber, Date);
             //test to see that the result is correct
             Assert.AreNotEqual(Error, "");
-        }
+        }*/
 
        
 

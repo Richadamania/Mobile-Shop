@@ -15,7 +15,7 @@ public partial class _1_DataEntry : System.Web.UI.Page
         //create a new instace of clsCustomer
         clsCustomer AnCustomer = new clsCustomer();
         //capture the first name
-        string Fi rstName = txtFirstName.Text;
+        string FirstName = txtFirstName.Text;
         //capture the last name
         string LastName = txtLastName.Text;
         //capture the address
