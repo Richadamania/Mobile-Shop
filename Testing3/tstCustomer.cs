@@ -119,20 +119,20 @@ namespace Testing3
         [TestMethod]
         public void FindMethodOK()
         {
-           //create an instance of the class I want to create
-           clsCustomer AnCustomer = new clsCustomer();
-        //Bollean variable to store the results of the validation
-        Boolean Found = false;
-        //create some test data to use with the method
-        Int32 CustomerID = 1;
-        //invoke the method
-        Found = AnCustomer.Find(CustomerID);
-          //test to see if the result is true
-          Assert.IsTrue(Found);
+            //create an instance of the class I want to create
+             clsCustomer AnCustomer = new clsCustomer();
+            //Bollean variable to store the results of the validation
+            Boolean Found = false;
+            //create some test data to use with the method
+             Int32 CustomerID = 1;
+            //invoke the method
+            Found = AnCustomer.Find(CustomerID);
+            //test to see if the result is true
+            Assert.IsTrue(Found);
        }
 
         [TestMethod]
-        public void TestCustomerIDNoFound()
+        public void TestCustomerIDFound()
         {
             //create an instance of the class I want to create
             clsCustomer AnCustomer = new clsCustomer();
@@ -141,11 +141,11 @@ namespace Testing3
             //Boolean variable to record if data is OK (assume it is)
             Boolean OK = true;
             // create some test data to use witht the method
-            Int32 CustomerID = 2;
+            Int32 CustomerID = 1;
             //invoke the method
             Found = AnCustomer.Find(CustomerID);
             //check the Customer ID
-           if (AnCustomer.CustomerID != 2)
+           if (AnCustomer.CustomerID != 1)
             {
                 OK = false;
             }
@@ -154,7 +154,7 @@ namespace Testing3
         }
 
         [TestMethod]
-        public void TestFirstNameNoFound()
+        public void TestFirstNameFound()
         {
             //create an instance of the class I want to create
             clsCustomer AnCustomer = new clsCustomer();
@@ -163,11 +163,11 @@ namespace Testing3
             //Boolean variable to record if data is OK (assume it is)
             Boolean OK = true;
             // create some test data to use witht the method
-            String FirstName = "Name";
+            Int32 CustomerID = 1;
             //invoke the method
-            Found = AnCustomer.Find(AnCustomer.CustomerID);
+            Found = AnCustomer.Find(CustomerID);
             //check the First Name
-            if (AnCustomer.FirstName != "Name")
+            if (AnCustomer.FirstName != "Richa")
             {
                 OK = false;
             }
@@ -176,7 +176,7 @@ namespace Testing3
         }
 
         [TestMethod]
-        public void TestLastNameNoFound()
+        public void TestLastNameFound()
         {
             //create an instance of the class I want to create
             clsCustomer AnCustomer = new clsCustomer();
@@ -185,11 +185,11 @@ namespace Testing3
             //Boolean variable to record if data is OK (assume it is)
             Boolean OK = true;
             // create some test data to use witht the method
-            String LastName = "Last Name";
+            Int32 CustomerID = 1;
             //invoke the method
-            Found = AnCustomer.Find(AnCustomer.CustomerID);
+            Found = AnCustomer.Find(CustomerID);
             //check the Last Name
-            if (AnCustomer.LastName != "Last Name")
+            if (AnCustomer.LastName != "Damania")
             {
                 OK = false;
             }
@@ -198,7 +198,7 @@ namespace Testing3
         }
 
         [TestMethod]
-        public void TestAddressNoFound()
+        public void TestAddressFound()
         {
             //create an instance of the class I want to create
             clsCustomer AnCustomer = new clsCustomer();
@@ -207,11 +207,11 @@ namespace Testing3
             //Boolean variable to record if data is OK (assume it is)
             Boolean OK = true;
             // create some test data to use witht the method
-            String Address = "House Number, Street name, City, Post-Code";
+            Int32 CustomerID = 1;
             //invoke the method
-            Found = AnCustomer.Find(AnCustomer.CustomerID);
+            Found = AnCustomer.Find(CustomerID);
             //check the Address
-            if (AnCustomer.Address != "House Number, Street name, City, Post-Code")
+            if (AnCustomer.Address != "16 Greenlane Road Leicester LE3 ^HG")                                                                                                                 
             {
                 OK = false;
             }
@@ -220,7 +220,7 @@ namespace Testing3
         }
 
         [TestMethod]
-        public void TestMobileNumberNoFound()
+        public void TestMobileNumberFound()
         {
             //create an instance of the class I want to create
             clsCustomer AnCustomer = new clsCustomer();
@@ -229,11 +229,11 @@ namespace Testing3
             //Boolean variable to record if data is OK (assume it is)
             Boolean OK = true;
             // create some test data to use witht the method
-            Int64 MobileNumber = 0116253595; 
+            Int32 CustomerID = 1;
             //invoke the method
-            Found = AnCustomer.Find(AnCustomer.CustomerID);
+            Found = AnCustomer.Find(CustomerID);
             //check the MobileNUmber
-            if (AnCustomer.MobileNumber != 0116253595)
+            if (AnCustomer.MobileNumber != 1168542625)
             {
                 OK = false;
             }
@@ -242,7 +242,7 @@ namespace Testing3
         }
 
         [TestMethod]
-        public void TestDateNoFound()
+        public void TestDateFound()
         {
             //create an instance of the class I want to create
             clsCustomer AnCustomer = new clsCustomer();
@@ -251,9 +251,9 @@ namespace Testing3
             //Boolean variable to record if data is OK (assume it is)
             Boolean OK = true;
             // create some test data to use witht the method
-            Int32 Date = 15/06/1990; 
+            Int32 CustomerID = 1; 
             //invoke the method
-            Found = AnCustomer.Find(AnCustomer.CustomerID);
+            Found = AnCustomer.Find(CustomerID);
             //check the Date
             if (AnCustomer.Date != Convert.ToDateTime("15/06/1990"))
             {
@@ -264,7 +264,7 @@ namespace Testing3
         }
 
         [TestMethod]
-        public void TestMembershipNoFound()
+        public void TestMembershipFound()
         {
             //create an instance of the class I want to create
             clsCustomer AnCustomer = new clsCustomer();
@@ -273,9 +273,9 @@ namespace Testing3
             //Boolean variable to record if data is OK (assume it is)
             Boolean OK = true;
             // create some test data to use witht the method
-            Boolean membership = true;
+            Int32 CustomerID = 1;
             //invoke the method
-            Found = AnCustomer.Find(AnCustomer.CustomerID);
+            Found = AnCustomer.Find(CustomerID);
             //check the Membership
             if (AnCustomer.Membership != true)
             {
@@ -285,7 +285,7 @@ namespace Testing3
             Assert.IsTrue(OK);
         }
 
-        /*[TestMethod]
+        /* [TestMethod]
         public void ValidMethodOK()
         {
             //create an instance of the class we want to create

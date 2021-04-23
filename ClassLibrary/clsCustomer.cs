@@ -154,6 +154,7 @@ namespace ClassLibrary
 
         }
 
+
         //function for the public validation method
 
         /*public string Valid(string firstname, string lastname, string address, string mobilenumber, string date)
@@ -161,11 +162,7 @@ namespace ClassLibrary
             //create a string variable to store the error
             String Error = "";
             //create a temporary variable to store date value
-
-
-            ///this function accepts 5 parameters for validation
-            ///this function returns a string containing any error message
-            ///if no errors found then a blank string is returned
+            DateTime DateTemp;
 
             //if the FirstName is blank
 
@@ -221,14 +218,9 @@ namespace ClassLibrary
                 //record the error
                 Error = Error + "The MobileNumber must be 11 characters :";
 
-
-                //Create a date time variable to store date values
-
-                DateTime DateTemp;
+                
                 try
                 {
-
-
                     DateTemp = Convert.ToDateTime(date);
 
                     if (DateTemp > Convert.ToDateTime("31/12/2005"))
@@ -247,10 +239,11 @@ namespace ClassLibrary
                     //record the error
                     Error = Error + "The Date was not a valid date  : ";
                 }
-
+                // return any error message
                 return Error;
 
-           }*/
-        //}
+           }
+        }*/
     }
 }
+
